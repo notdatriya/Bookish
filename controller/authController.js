@@ -45,7 +45,7 @@ catch(err){
 
 
 module.exports.getLogin=async function getLogin(req,res){
-    res.sendFile('D:/riya/Web development/bookWebsite/index.html');
+    res.sendFile('./index.html');
 };
 
 
