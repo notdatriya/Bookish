@@ -21,7 +21,7 @@
         "stripe": "^10.10.0"
     },
     "scripts":{
-        "start":"nodemon --exec babel-node src/app.js"
+        "start":"nodemon app.js"
     }
 
 
