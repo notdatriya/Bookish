@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Image</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="ProfileImage" method="POST" enctype="multipart/form-data">
+        <input type="file" name="photo">
+        <input type="submit" value="submit">
+    </form>
+
+    <!-- <form enctype="multipart/form-data">
+        <input type="file" name="photo">
+        <button id="submit">submit</button>
+        
+
+    </form> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    let btn=document.querySelector('button');
+    btn.addEventListener('click',async function(e){
+        e.preventDefault();
+
+        let image=document.querySelector('input[type="file"]').value;
+
+        let resp=await axios.post('/user/ProfileImage',image)
+        .then((image)=>{
+            alert("photo uploaded");
+        })
+        .catch((err)=>{
+            alert("Try again");
+        });
+    });
+   
+</script>
+</script> -->
+</body>
+</html>

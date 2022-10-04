@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form>
+        <label>Email</label>
+        <input type="email">
+        <br><br><br>
+        <label>Name</label>
+        <input type="text">
+        <br><br><br>
+        <label>Password</label>
+        <input type="password">
+        <br><br><br>
+        <label >ConfirmPassword</label>
+        <input type="password" id="cp">
+        <br><br><br>
+        <button>Signup</button>
+        <br><br>
+        <button id="login">Login Page</button>
+        <button id="profileImage">Upload profile image</button>
+    </form>
+
+<!-- //*******backend -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    let btn=document.querySelector('button');
+    btn.addEventListener('click',async function(e){
+        e.preventDefault();
+
+        let Email=document.querySelector('input[type="email"]').value;
+        let Name=document.querySelector('input[type="text"]').value;
+        let Password=document.querySelector('input[type="password"]').value;
+       let ConfirmPassword=document.querySelector('input[id="cp"]').value;
+
+        let resp=await axios.post('/user/signup',{Name,Email,Password,ConfirmPassword});
+        // .then(({Name,Email,Password,ConfirmPassword})=>{
+        //     alert("User Signed Up. Please go to login page");
+        // })
+        // .catch((err)=>{
+        //     alert("Try again");
+        // });
+    });
+
+    let btn2=document.querySelector('button[id="login"]');
+     btn2.addEventListener('click',function(e){
+        e.preventDefault();
+        location.href='/user/login';
+    });
+
+    let btn5=document.querySelector('button[id="profileImage"]');
+    btn5.addEventListener('click',function(e){
+        e.preventDefault();
+        location.href='/user/ProfileImage';
+    });
+
+   
+</script>
+</script>
+</body>
+</html>
+
+

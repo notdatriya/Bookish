@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    <h1>Login</h1>
+    <form>
+        <label>Email</label>
+        <input type="email">
+        <br><br>
+        <label>Password</label>
+        <input type="password">
+       <br><br>
+        <button>Submit</button>
+        <br><br>
+        <button id="forgetPassword">Forgot Password</button><br><br>
+        <button id="logout">Logout</button><br><br>
+        <button id="signup">Signup</button><br><br>
+
+        <h4>Download your pdf once you have logged in :)</h4>
+        <button id="download">Click to download pdf</button><br><br>
+       
+
+    </form>
+
+    <!-- //*******backend -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    alert("Please login to bookstore.com");
+    let btn=document.querySelector('button');
+    btn.addEventListener('click',async function(e){
+        e.preventDefault();
+
+        let Email=document.querySelector('input[type="email"]').value;
+        let Password=document.querySelector('input[type="password"]').value;
+
+        let resp=await axios.post('/user/login',{Email,Password});
+        // .then(({Email,Password})=>{
+        //     alert("User logged in");
+        // })
+        // .catch((err)=>{
+        //     alert("Try again");
+        // });
+
+    });
+
+
+    let btn2=document.querySelector('button[id="forgetPassword"]');
+    btn2.addEventListener('click',function(e){
+        e.preventDefault();
+        location.href='/user/forgetpassword';
+    });
+
+    let btn3=document.querySelector('button[id="signup"]');
+    btn3.addEventListener('click',function(e){
+        e.preventDefault();
+        location.href='/user/signup';
+    });
+
+    let btn4=document.querySelector('button[id="download"]');
+    btn4.addEventListener('click',function(e){
+        e.preventDefault();
+        location.href='/user/fileDownload';
+    });
+
+    let btn5=document.querySelector('button[id="logout"]');
+    btn5.addEventListener('click',async function(e){
+        e.preventDefault();
+        location.href='/user/signup';
+       await axios.get('/user/logout');
+    
+    });
+
+    
+
+
+</script>
+</script>
+</body>
+</html>
