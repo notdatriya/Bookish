@@ -5,7 +5,7 @@ const cors = require('cors');
 let app=express();
 app.use(express.json());
 app.use(cookieParser());
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 3000);
 
 const userRouter=require('./Routers/userRouter');
 
